@@ -1,6 +1,12 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 require('./services/passport');
+
+mongoose.connect(
+  process.env.MONGODB_URI,
+  { useNewUrlParser: true }
+);
 
 const app = express();
 
@@ -10,8 +16,6 @@ app.get('/test', (req, res) => {
   res.send('test');
 });
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on PORT:${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on PORT: ${process.env.PORT}`);
 });
