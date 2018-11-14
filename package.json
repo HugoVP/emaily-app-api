@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Maily App Server",
+  "description": "Emaily App Server",
   "main": "index.js",
   "engines": {
     "node": "10.10.0",
