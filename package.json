@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Emaily App Server",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HugoVP/emaily-app-server.git"
+  },
   "engines": {
     "node": "10.10.0",
     "npm": "6.4.1"

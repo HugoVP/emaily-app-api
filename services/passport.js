@@ -1,6 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
+const url = require('url');
 
 const User = mongoose.model('users');
 
@@ -19,7 +20,10 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `${process.env.GOOGLE_REDIRECT_URI}/auth/google/callback`,
+      callbackURL: url.resolve(
+        process.env.GOOGLE_REDIRECT_URI,
+        '/auth/google/callback'
+      ),
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id }).then(existingUser => {

@@ -8,7 +8,12 @@ require('./services/passport');
 
 mongoose.connect(
   process.env.MONGODB_URI,
-  { useNewUrlParser: true }
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    promiseLibrary: global.Promise,
+  }
 );
 
 const app = express();
