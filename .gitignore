@@ -78,3 +78,6 @@ typings/
 
 # misc
 .DS_Store
+
+# editors
+.vscode/
